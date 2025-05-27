@@ -1,6 +1,9 @@
 Movie Collection App Documentation
 A full-stack web application for managing your personal movie collection with image upload capabilities.
 🚀 Features
+Deployed links:
+Frontend - https://movie-listing-app-psi.vercel.app/
+Backend - https://movielistingapp-cqg8.onrender.com
 
 Add Movies: Create new movie entries with title, genre, year, description, and images.
 View Movies: Browse your movie collection in a responsive grid layout.
@@ -10,14 +13,14 @@ Image Upload: Upload movie posters via Cloudinary integration.
 Responsive Design: Works seamlessly on desktop and mobile devices.
 
 🛠️ Tech Stack
-Frontend
+Frontend - https://movie-listing-app-psi.vercel.app/
 
 React: UI library
 Tailwind CSS: Styling framework
 Axios: HTTP client for API calls
 React Router: Navigation
 
-Backend
+Backend - "https://movielistingapp-cqg8.onrender.com"
 
 Node.js: Runtime environment
 Express.js: Web framework
@@ -26,6 +29,7 @@ Mongoose: MongoDB object modeling
 Cloudinary: Image storage and management
 
 📁 Project Structure
+```
 movie-app/
 ├── client/                 # Frontend React app
 │   ├── src/
@@ -45,8 +49,9 @@ movie-app/
 │   │   └── getMovie.middleware.js
 │   └── server.js
 └── README.md
-
+```
 🗄️ Database Schema
+```
 Movie Model
 {
   "_id": ObjectId,
@@ -56,16 +61,16 @@ Movie Model
   "description": String,     // Movie description (required)
   "Image": String           // Cloudinary image URL (required)
 }
-
+```
 🔌 API Endpoints
-Base URL
-
+```
 Production: https://movielistingapp-cqg8.onrender.com
 Development: http://localhost:5000
-
+```
 Movies Routes (/movies)
 GET /movies
 Get all movies from the collection.
+```
 Response:
 [
   {
@@ -77,10 +82,11 @@ Response:
     "Image": "https://res.cloudinary.com/ddwtk0q2s/image/upload/v1234567890.jpg"
   }
 ]
-
+```
 POST /movies
 Create a new movie entry.
 Request Body:
+```
 {
   "title": "The Matrix",
   "genre": "Sci-Fi",
@@ -88,8 +94,9 @@ Request Body:
   "description": "A computer programmer discovers reality is a simulation.",
   "Image": "https://res.cloudinary.com/ddwtk0q2s/image/upload/v1234567890.jpg"
 }
-
+```
 Response:
+```
 {
   "_id": "64a1b2c3d4e5f6789012345",
   "title": "The Matrix",
@@ -98,10 +105,11 @@ Response:
   "description": "A computer programmer discovers reality is a simulation.",
   "Image": "https://res.cloudinary.com/ddwtk0q2s/image/upload/v1234567890.jpg"
 }
-
+```
 PATCH /movies/:id
 Update an existing movie by ID.
 Request Body (all fields optional):
+```
 {
   "title": "Updated Title",
   "genre": "Updated Genre",
@@ -109,14 +117,15 @@ Request Body (all fields optional):
   "description": "Updated description",
   "Image": "new-image-url"
 }
-
+```
 DELETE /movies/:id
 Delete a movie by ID.
 Response:
+```
 {
   "message": "Movie deleted successfully"
 }
-
+```
 🎨 Frontend Components
 App.js
 Main application component with a two-column layout.
@@ -205,14 +214,13 @@ npm install react react-dom axios tailwindcss
 Configure Tailwind CSS:
 npx tailwindcss init
 
-
+BACKEND:
 Update API endpoints:Update the API base URL in your components:
 // For development
 const API_URL = "http://localhost:5000";
 
 // For production
 const API_URL = "https://movielistingapp-cqg8.onrender.com";
-
 
 Start the development server:
 npm start
@@ -267,55 +275,7 @@ Deploy the build folder.
 Update API endpoints in the frontend to point to the production backend URL: https://movielistingapp-cqg8.onrender.com
 Access the deployed frontend at: https://movie-listing-app-psi.vercel.app
 
-🐛 Common Issues & Solutions
-
-CORS Error
-
-Solution: Ensure CORS middleware is properly configured in Express:app.use(cors());
 
 
 
-
-Image Upload Fails
-
-Solution:
-Verify Cloudinary credentials
-Ensure the upload preset is set to unsigned
-Check that the file size is within Cloudinary’s limits
-
-
-
-
-MongoDB Connection Error
-
-Solution:
-Verify the MongoDB URI in the .env file
-Check network connectivity
-Ensure the MongoDB service is running
-
-
-
-
-Movies Not Updating After Add
-
-Solution: Use callback functions to update parent state:// In parent component
-const addMovie = (newMovie) => {
-  setMovies(prevMovies => [...prevMovies, newMovie]);
-};
-
-// Pass to MovieForm
-<MovieForm onMovieAdded={addMovie} />
-
-
-
-
-
-🔮 Future Enhancements
-
-User Authentication: Support for multiple users
-Movie Ratings: Add a rating system
-Categories/Tags: Enhanced organization
-Favorites: Option to mark favorite movies
-Export/Import: Backup and restore functionality
-Movie Details: Integration with movie databases (TMDB, OMDB)
 
