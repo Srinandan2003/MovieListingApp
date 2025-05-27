@@ -12,21 +12,20 @@ Responsive Design: Works seamlessly on desktop and mobile devices.
 🛠️ Tech Stack
 Frontend
 
-React - UI library
-Tailwind CSS - Styling framework
-Axios - HTTP client for API calls
-React Router - Navigation
+React: UI library
+Tailwind CSS: Styling framework
+Axios: HTTP client for API calls
+React Router: Navigation
 
 Backend
 
-Node.js - Runtime environment
-Express.js - Web framework
-MongoDB - Database
-Mongoose - MongoDB object modeling
-Cloudinary - Image storage and management
+Node.js: Runtime environment
+Express.js: Web framework
+MongoDB: Database
+Mongoose: MongoDB object modeling
+Cloudinary: Image storage and management
 
 📁 Project Structure
-```
 movie-app/
 ├── client/                 # Frontend React app
 │   ├── src/
@@ -46,20 +45,21 @@ movie-app/
 │   │   └── getMovie.middleware.js
 │   └── server.js
 └── README.md
-```
+
 🗄️ Database Schema
 Movie Model
 {
-  _id: ObjectId,
-  title: String,           // Movie title (required)
-  genre: String,           // Movie genre (required)
-  releaseYear: Number,     // Release year (required)
-  description: String,     // Movie description (required)
-  Image: String           // Cloudinary image URL (required)
+  "_id": ObjectId,
+  "title": String,           // Movie title (required)
+  "genre": String,           // Movie genre (required)
+  "releaseYear": Number,     // Release year (required)
+  "description": String,     // Movie description (required)
+  "Image": String           // Cloudinary image URL (required)
 }
 
 🔌 API Endpoints
 Base URL
+
 Production: https://movielistingapp-cqg8.onrender.com
 Development: http://localhost:5000
 
@@ -101,7 +101,7 @@ Response:
 
 PATCH /movies/:id
 Update an existing movie by ID.
-Request Body: (all fields optional)
+Request Body (all fields optional):
 {
   "title": "Updated Title",
   "genre": "Updated Genre",
@@ -168,51 +168,45 @@ Cloudinary account
 
 Backend Setup
 
-Clone the repository
-
+Clone the repository:
 git clone <repository-url>
 cd movie-app/server
 
 
-Install dependencies
-
+Install dependencies:
 npm install express mongoose cors dotenv
 
 
-Environment VariablesCreate a .env file in the server directory:
-
+Environment Variables:Create a .env file in the server directory:
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/moviedb
 # or MongoDB Atlas URI: mongodb+srv://username:password@cluster.mongodb.net/moviedb
 
 
-Start the server
-
+Start the server:
 # Development
 npm run dev
 
 # Production
 npm start
 
+
+
 Frontend Setup
 
-Navigate to client directory
-
+Navigate to client directory:
 cd movie-app/client
 
 
-Install dependencies
-
+Install dependencies:
 npm install react react-dom axios tailwindcss
 
 
-Configure Tailwind CSS
-
+Configure Tailwind CSS:
 npx tailwindcss init
 
 
-Update API endpointsUpdate the API base URL in your components:
-
+Update API endpoints:Update the API base URL in your components:
 // For development
 const API_URL = "http://localhost:5000";
 
@@ -220,25 +214,21 @@ const API_URL = "http://localhost:5000";
 const API_URL = "https://movielistingapp-cqg8.onrender.com";
 
 
-Start the development server
-
+Start the development server:
 npm start
+
+
 
 Cloudinary Setup
 
-Create Cloudinary account at cloudinary.com
-
-Create upload preset
-
+Create a Cloudinary account at cloudinary.com.
+Create upload preset:
 Go to Settings → Upload
 Create an unsigned upload preset
 Name it movie_preset
 
 
-Update Cloudinary config in MovieForm.js:
-
-
-const uploadImageToCloudinary = async () => {
+Update Cloudinary config in MovieForm.js:const uploadImageToCloudinary = async () => {
   const data = new FormData();
   data.append('file', imageFile);
   data.append('upload_preset', 'movie_preset');
@@ -250,6 +240,8 @@ const uploadImageToCloudinary = async () => {
   return res.data.secure_url;
 };
 
+
+
 📱 Responsive Design
 The application is fully responsive with:
 
@@ -260,49 +252,63 @@ Mobile: Single-column with touch-friendly interface
 🚀 Deployment
 Backend (Render)
 
-Create an account on Render
-Connect your repository to Render
-Set environment variables (e.g., MONGODB_URI, PORT) in the Render dashboard
-Deploy the backend service
+Create an account on Render.
+Connect your repository to Render.
+Set environment variables (e.g., MONGODB_URI, PORT) in the Render dashboard.
+Deploy the backend service.
 Verify the backend URL: https://movielistingapp-cqg8.onrender.com
 
 Frontend (Vercel)
 
-Create an account on Vercel
-Connect your repository to Vercel
+Create an account on Vercel.
+Connect your repository to Vercel.
 Build the React app: npm run build
-Deploy the build folder
+Deploy the build folder.
 Update API endpoints in the frontend to point to the production backend URL: https://movielistingapp-cqg8.onrender.com
 Access the deployed frontend at: https://movie-listing-app-psi.vercel.app
 
 🐛 Common Issues & Solutions
-1. CORS Error
-Solution: Ensure CORS middleware is properly configured in Express:
-app.use(cors());
 
-2. Image Upload Fails
+CORS Error
+
+Solution: Ensure CORS middleware is properly configured in Express:app.use(cors());
+
+
+
+
+Image Upload Fails
+
 Solution:
-
 Verify Cloudinary credentials
 Ensure the upload preset is set to unsigned
 Check that the file size is within Cloudinary’s limits
 
-3. MongoDB Connection Error
-Solution:
 
+
+
+MongoDB Connection Error
+
+Solution:
 Verify the MongoDB URI in the .env file
 Check network connectivity
 Ensure the MongoDB service is running
 
-4. Movies Not Updating After Add
-Solution: Use callback functions to update parent state:
-// In parent component
+
+
+
+Movies Not Updating After Add
+
+Solution: Use callback functions to update parent state:// In parent component
 const addMovie = (newMovie) => {
   setMovies(prevMovies => [...prevMovies, newMovie]);
 };
 
 // Pass to MovieForm
 <MovieForm onMovieAdded={addMovie} />
+
+
+
+
 
 🔮 Future Enhancements
 
@@ -312,6 +318,4 @@ Categories/Tags: Enhanced organization
 Favorites: Option to mark favorite movies
 Export/Import: Backup and restore functionality
 Movie Details: Integration with movie databases (TMDB, OMDB)
-
-
 
