@@ -1,10 +1,11 @@
 Movie Collection App Documentation
 A full-stack web application for managing your personal movie collection with image upload capabilities.
 🚀 Features
-Deployed links:
+#Deployed links:
+```
 Frontend - https://movie-listing-app-psi.vercel.app/
 Backend - https://movielistingapp-cqg8.onrender.com
-
+```
 Add Movies: Create new movie entries with title, genre, year, description, and images.
 View Movies: Browse your movie collection in a responsive grid layout.
 Search Movies: Search by title, genre, year, or across all fields.
