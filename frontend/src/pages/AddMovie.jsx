@@ -30,7 +30,7 @@ const AddMovie = () => {
       return;
     }
 
-    await axios.post("http://localhost:5000/api/movies", form);
+    await axios.post("https://movielistingapp-cqg8.onrender.com/movies", form);
     alert("Movie added!");
     setForm({ title: '', genre: '', releaseYear: '', description: '', image: '' });
   };

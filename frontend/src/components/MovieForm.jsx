@@ -44,7 +44,7 @@ const MovieForm = () => {
     if (!imageUrl) return;
 
     try {
-      const response = await axios.post('http://localhost:5000/movies', {
+      const response = await axios.post('https://movielistingapp-cqg8.onrender.com/movies/', {
         ...movie,
         Image: imageUrl,
       });
