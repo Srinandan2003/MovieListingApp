@@ -1,7 +1,7 @@
 Movie Collection App Documentation
 A full-stack web application for managing your personal movie collection with image upload capabilities.
 🚀 Features
-#Deployed links:
+
 ```
 Frontend - https://movie-listing-app-psi.vercel.app/
 Backend - https://movielistingapp-cqg8.onrender.com
