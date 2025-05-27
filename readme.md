@@ -26,6 +26,7 @@ Mongoose - MongoDB object modeling
 Cloudinary - Image storage and management
 
 📁 Project Structure
+```
 movie-app/
 ├── client/                 # Frontend React app
 │   ├── src/
@@ -45,7 +46,7 @@ movie-app/
 │   │   └── getMovie.middleware.js
 │   └── server.js
 └── README.md
-
+```
 🗄️ Database Schema
 Movie Model
 {
